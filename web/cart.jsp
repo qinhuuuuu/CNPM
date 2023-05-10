@@ -22,48 +22,49 @@
 
 <body>
 
+<%@include file="header.jsp" %>
 
 <div class="container content">
     <div class="row">
-        <div class="list-product">
+        <div class="<%=cart.size()==0?"col-12":"col-8"%> list-product">
             <h5 class="title uppercase">giỏ hàng</h5>
             <ul class="container-list-product">
-
+                <% int total = 0;
+                    if (cart.size() != 0) {
+                        for (Detail detail : cart) {
+                            total += detail.getTotal();
+                            Product product = detail.getProduct();
+                %>
 
                 <li class="product bd-bottom pb-4 pt-4">
                     <div class="row">
 
                         <div class="col-3 p-0 left"><img
-                                src=""
+                                src="<%=product.getImageSrc()%>"
                                 alt=""></div>
                         <div class="col-6">
                             <div class="top">
-                                <h5 class="product-name">San pham 1
+                                <h5 class="product-name"><%=product.getName()%>
                                 </h5>
                                 <div class="contain-price">
                                     <span>Giá:</span>
 
-                                    <span class="price">15000000 VND</span>
+                                    <span class="price"><%=Format.format(product.getPrice())%> VND</span>
                                 </div>
                             </div>
                             <div class="bottom">
                                 <div class="text">Số lượng</div>
                                 <input type="number" id="quantity" class="input" name="quantity" min="1" max="20"
-                                       placeholder=" " value=5">
+                                       placeholder=" " value="<%=detail.getQuantity()%>">
                             </div>
 
                         </div>
                         <div class="col-3 right">
                             <div class="top">
-                                <div class="price">15000000 VND</div>
-                                <div class="stocking">
-
-                                    Còn hàng
-
-                                </div>
+                                <div class="price"><%=detail.getTotal()%> VND</div>
                             </div>
                             <div class="bottom">
-                                <button class="btn-remove" ><i
+                                <button class="btn-remove" value="<%=detail.getId()%>"><i
                                         class="fa-solid fa-trash"></i> Xóa
                                 </button>
                             </div>
@@ -72,38 +73,46 @@
 
                 </li>
 
+                <%
+                    }
+                } else {
+                %>
+                <li class="notification bd-bottom pb-4 pt-4 uppercase">
+                    Giỏ hàng của bạn đang trống, quay lại mua hàng nhé!
+                </li>
+                <%}%>
             </ul>
-
+            <%if (cart.size() != 0) {%>
             <div class="contain-btn">
                 <button class="delete-all uppercase submit">Xóa tất cả</button>
+                <%} else {%>
+                <div class="contain-btn" style="justify-content: center">
+                    <%}%>
+                    <a href="http://localhost:8080/listProduct"
+                       class="return uppercase submit">quay lại mua hàng</a>
+                </div>
+
             </div>
-<%--            <%if (cart.size() != 0) {%>--%>
-                        <div class="col-4 bill p-0">
-                            <div class="contain-bill p-4">
-                                <h5 class="title-bill uppercase">đơn hàng</h5>
-                                <div class="mid bd-bottom">
-                                    <div class="arow">
-                                        <span>Đơn hàng</span>
-                                        <span class="total-real"><%=Format.format(15000000)%> VND</span>
-                                    </div>
-                                </div>
+            <%--            <%if (cart.size() != 0) {%>--%>
+            <div class="col-4 bill p-0">
+                <div class="contain-bill p-4">
+                    <h5 class="title-bill uppercase">đơn hàng</h5>
 
-                                <div class="bottom">
-                                    <div class="arow">
-                                        <span class="text uppercase">tạm tính</span>
-                                        <span class="total"><span><%=Format.format(15000000)%></span> VND</span>
-                                    </div>
-                                    <button class="btn-total uppercase submit">Tiếp tục thanh toán</button>
-
-                                </div>
-
-                            </div>
+                    <div class="bottom">
+                        <div class="arow">
+                            <span class="text uppercase">tạm tính</span>
+                            <span class="total"><span><%=Format.format(total)%></span> VND</span>
                         </div>
+                        <button class="btn-total uppercase submit">Đặt hàng</button>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
+    <%@include file="footer.jsp" %>
+
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
             integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
@@ -114,6 +123,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
             integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/general.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // 1. User chọn chức năng Đặt hàng ở Giỏ hàng
+            $('.btn-total').click(function () {
+                // 2. Hệ thống chuyển User đến trang Thông tin đơn hàng
+                window.location = "http://localhost:8080/orderInfor";
+            })
+        })</script>
 </body>
 
 </html>

@@ -81,4 +81,8 @@ public class Address implements Serializable {
                 ", city='" + city + '\'' +
                 '}';
     }
+
+    public String formatAddress(Address a) {
+        return a.getDetail() + ", " + a.getDistrict() + ", " + a.getCity();
+    }
 }
