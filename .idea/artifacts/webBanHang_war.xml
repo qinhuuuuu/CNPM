@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="webBanHang:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="webBanHang_war.war">
+      <element id="artifact" artifact-name="webBanHang:war exploded" />
+    </root>
+  </artifact>
+</component>
