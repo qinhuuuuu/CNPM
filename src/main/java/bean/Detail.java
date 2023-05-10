@@ -3,9 +3,9 @@ package bean;
 import java.io.Serializable;
 
 public class Detail implements Serializable {
-private int id;
-private Product product;
-private int quantity;
+    private int id;
+    private Product product;
+    private int quantity;
 
     public Detail() {
     }
@@ -49,4 +49,7 @@ private int quantity;
                 '}';
     }
 
+    public int getTotal() {
+        return getQuantity() * getProduct().getPrice();
+    }
 }

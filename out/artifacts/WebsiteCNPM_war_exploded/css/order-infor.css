@@ -1,0 +1,352 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+    --color1: #FFF8EA;
+    --color2: #9E7676;
+    --color3: #815B5B;
+    --color4: #594545;
+}
+
+
+/*header start*/
+
+
+/*header end*/
+
+
+/*content start*/
+
+.content {
+    margin-top: 70px;
+}
+
+h5.title {
+    padding: 15px 0px;
+    background: var(--color1);
+}
+
+h6.title {
+    font-size: 18px;
+    color: var(--color4);
+}
+
+.container .row .col-8 .title {
+    background: var(--color1);
+    padding: 10px 20px;
+}
+
+
+/*list product start*/
+
+.content .left {
+    padding-right: 50px;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #815B5B;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked)+label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+[type="radio"]:checked+label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.choose-address {
+    border-bottom: 2px solid var(--color4);
+    padding: 10px 10px 20px 10px;
+}
+
+p {
+    margin: 10px 0px 0px 0px;
+}
+
+.choose-address .name {
+    font-size: 17px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.choose-address .address {
+    font-weight: 600;
+    margin-left: 30px;
+}
+
+.button {
+    width: 180px;
+    height: 40px;
+    color: #FFF;
+    border: none;
+    background: var(--color3);
+}
+
+.button-close {
+    width: 100px;
+}
+
+.choose-address .select-address {
+    border: 2px solid var(--color4);
+    height: 40px;
+    cursor: pointer;
+    border-radius: 0px;
+    width: 218px;
+    margin-bottom: 20px;
+}
+
+.choose-address .select-address:focus {
+    outline: 0;
+}
+
+.choose-address .list-address .contain-address {
+    padding-bottom: 10px;
+}
+
+.modal-body {
+    padding: 0px 26px 0px 26px;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.modal-content {
+    background-color: var(--color1);
+    border-radius: 0px;
+}
+
+#input-num-house {
+    margin-bottom: 0px;
+}
+
+.content .way-ship,
+.content .pay {
+    padding: 20px 10px 0px 10px;
+    border-bottom: 2px solid var(--color4);
+}
+
+.content .way-ship .contain-way-ship label,
+.content .way-ship .contain-pay label {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.content .way-ship .text,
+.content .pay .text {
+    font-size: 17px;
+}
+
+.content .way-ship .text.fee,
+.content .pay .text.fee {
+    font-weight: 700;
+}
+
+.content .pay {
+    border: none;
+    margin-bottom: 20px;
+}
+
+
+/*list product end*/
+
+
+/*bill start*/
+
+.content .bill {}
+
+.content .bill .contain-bill {
+    background-color: var(--color1);
+}
+
+.contain-bill .title-bill {
+    border-bottom: 2px solid var(--color4);
+    padding-bottom: 10px;
+}
+
+.bill .text {
+    color: var(--color4);
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.contain-bill .top .name-product {
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.contain-bill .mid .text {
+    margin: 4px 0px;
+}
+
+.contain-bill .mid,
+.contain-bill .top,
+.contain-bill .bottom {
+    padding: 24px 0px;
+}
+
+.amount {
+    color: #f15e2c !important;
+}
+
+.contain-bill .bottom .text {
+    font-size: 22px;
+    color: #f15e2c;
+}
+
+.contain-bill .bottom .btn-total {
+    width: 100%;
+    height: 72px;
+    font-size: 25px;
+    font-weight: 500;
+    background-color: var(--color3);
+    color: #FFF;
+    border: none;
+}
+
+
+/*bill end*/
+
+
+/*content end*/
+
+
+/*footer start*/
+
+.footer {
+    padding-top: 50px;
+    background-color: var(--color4);
+}
+
+.footer .title {
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.footer .col-2 div {
+    padding: 5px 0px;
+}
+
+.footer a {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color1);
+}
+
+
+/*footer end*/
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bd-bottom {
+    position: relative;
+    clip-path: inset(0 round 0px 0 0px 0);
+}
+
+.bd-bottom::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: -7px;
+    right: -7px;
+    bottom: -7px;
+    z-index: -1;
+    border-bottom: 8px dashed var(--color2);
+    box-sizing: border-box;
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--color4);
+}
+
+h5 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color4);
+}
+
+.input {
+    width: 440px;
+    height: 40px;
+    border: 2px solid var(--color4);
+    padding-left: 10px;
+    color: var(--color4);
+    margin-bottom: 20px;
+}
+
+.input:focus {
+    outline: 0;
+}
+
+.input::placeholder {
+    margin-left: 20px;
+}
+
+button.submit:hover {
+    background-color: var(--color4) !important;
+}
+
+.content i {
+    margin-right: 10px;
+    color: #f15e2c;
+}
+.product-price.row.text{
+    margin-bottom: 20px;
+}
